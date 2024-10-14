@@ -5,7 +5,7 @@
 
   <groupId>com.github.stephanemartin</groupId>
   <artifactId>dm3270-lib</artifactId>
-  <version>0.16</version>
+  <version>0.17-SNAPSHOT</version>
 
   <name>${project.artifactId}</name>
   <description>
