@@ -20,6 +20,7 @@ public class Field implements Iterable<ScreenPosition> {
   private final int endPosition;          // last data position of this field
   // unprotected fields
   private Field next;
+  private Field previous;
 
   private final StartFieldAttribute startFieldAttribute;
   private final List<ScreenPosition> screenPositions;
@@ -48,12 +49,27 @@ public class Field implements Iterable<ScreenPosition> {
     this.next = nextField;
   }
 
+  public void linkToPrevious(Field previousField) {
+    assert isUnprotected();
+    assert previousField.isUnprotected();
+
+    this.previous = previousField;
+  }
+
   public void setNext(Field field) {
     this.next = field;
   }
 
+  public void setPrevious(Field field) {
+    this.previous = field;
+  }
+
   public Field getNextUnprotectedField() {
     return next;
+  }
+
+  public Field getPreviousUnprotectedField() {
+    return previous;
   }
 
   public int getDisplayLength() {
