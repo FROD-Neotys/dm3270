@@ -70,15 +70,17 @@ public class FieldManager {
       lastField.linkToNext(firstField);
       firstField.linkToPrevious(lastField);
 
-      // TODO: Not sure if protected fields should be linked to previous unprotected field?
       // link protected fields to unprotected fields
       Field next = firstField;
+      Field previous = lastField;
 
       for (Field field : fields) {
         if (field.isProtected()) {
           field.setNext(next);
+          field.setPrevious(previous);
         } else {
           next = field.getNextUnprotectedField();
+          previous = field.getPreviousUnprotectedField();
         }
       }
     }
